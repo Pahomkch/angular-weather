@@ -1,7 +1,23 @@
-$container-width: 980px;
-
 
 .container {
     margin: 0 auto;
-    width: $container-width;
+    .main-content {
+        display: flex;
+        flex-wrap: wrap;
+        &__news-content {
+            justify-content: start;
+        }
+        &__container {
+            display: flex;
+            flex-direction: column;
+            justify-content: stretch;
+            flex-grow: 1;
+        }
+        &__citys {
+            display: flex;
+            justify-content: space-between;
+        }
+       
+    }
 }
+

@@ -1,1 +1,18 @@
-<p>weather-in-my-city works!</p>
+<div class="city-card">
+  <h2 class="city-card__title">Погода в Екатеринбурге</h2>
+  <div class="city-card__about">
+    <div class="city-card__current-temp">
+      <p class="city-card__descr">{{weather | titlecase}}</p>
+      <div class="city-card__temperatur-area">
+          <img [src]="CLOUD" alt="cloud" class="city-card__img">
+          <span class="city-card__temp">{{temperatura}}°</span>
+      </div>  
+    </div>
+    <div class="city-card__info">
+      <p class="city-card__wind city-card__icon">{{wind}} м/с</p>
+      <p class="city-card__pressure city-card__icon">{{pressure}} мм</p>
+      <p class="city-card__humidity city-card__icon">{{humidity}} %</p>
+    </div>
+  </div>
+
+</div>

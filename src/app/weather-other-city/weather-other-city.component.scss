@@ -1,0 +1,23 @@
+.weather-other-city {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  &__list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 230px;
+  }
+  &__city {
+    display: flex;
+    position: relative;
+    height: 55px;
+  }
+  &__name {
+    color: #1864E6;
+  }
+  &__temp {
+    position: absolute;
+    right: 30px;
+  }
+}

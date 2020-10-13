@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar-news.component.scss']
 })
 export class SidebarNewsComponent implements OnInit {
-  private NEWS = '../../assets/img/newsfeed.jpg'
+  NEWS = '../../assets/img/newsfeed.jpg'
   constructor() { }
 
   ngOnInit(): void {

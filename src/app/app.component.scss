@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+  font-family: 'Roboto';
+  margin: 0;
+  padding: 0;
+}
 
 .container {
     margin: 0 auto;
     .main-content {
         display: flex;
-        flex-wrap: wrap;
         &__news-content {
             justify-content: start;
         }
@@ -11,13 +17,22 @@
             display: flex;
             flex-direction: column;
             justify-content: stretch;
-            flex-grow: 1;
+            flex-grow: 0;
+            padding: 50px 100px 30px 65px ;
         }
         &__citys {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
+        }
+        &__weather {
+            display: flex;
         }
        
     }
 }
 
+@media (max-width: 540px) { 
+    .container {
+        width: 520px;
+    }
+}

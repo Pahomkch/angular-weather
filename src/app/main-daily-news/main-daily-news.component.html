@@ -1,1 +1,7 @@
-<p>main-daily-news works!</p>
+<h2 class="main-day-news__title">Главное за день</h2>
+<div class="main-day-news">
+    <div *ngFor="let item of news" class="main-day-news__new">
+        <img src="{{item.img}}" alt="sadad" class="main-day-news__img">
+        <div class="main-day-news"><b>{{item.descr}}</b></div>
+    </div>
+</div>

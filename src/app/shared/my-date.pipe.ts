@@ -4,34 +4,18 @@ import { Pipe, PipeTransform } from '@angular/core'
     name: 'daydata'
 })
 export class MyDatePipe implements PipeTransform {
-  transform(value: number): string {
-    const day = new Date(value * 1000).getDay()
-    switch (day) {
-        case 0: {
-            return 'Понедельник'
+    transform(valueInUTC: number): string {
+        const day = new Date(valueInUTC * 1000).getDay()
+        const codeDayOfWeek = {
+            1: 'Понедельник',
+            2: 'Вторник',
+            3: 'Среда',
+            4: 'Четверг',
+            5: 'Пятница',
+            6: 'Суббота',
+            0: 'Воскресенье'
         }
-        case 1: {
-            return 'Вторник'
-        }
-        case 2: {
-            return 'Среда'
-        }
-        case 3: {
-            return 'Четверг'
-        }
-        case 4: {
-            return 'Пятница'
-        }
-        case 5: {
-            return 'Суббота'
-        }
-        case 6: {
-            return 'Воскресенье'
-        }
-        default: {
-            return 'default-value'
-        }
+        return codeDayOfWeek[day]
     }
-  }
 }
 

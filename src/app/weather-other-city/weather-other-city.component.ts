@@ -1,5 +1,5 @@
 import { ApiService } from './../api.service'
-import { Component, OnInit } from '@angular/core'
+import { Component, OnDestroy, OnInit } from '@angular/core'
 import { Forecast } from '../shared/models/forecast.model'
 import { City } from '../shared/models/City.model'
 
@@ -8,7 +8,7 @@ import { City } from '../shared/models/City.model'
   templateUrl: './weather-other-city.component.html',
   styleUrls: ['./weather-other-city.component.scss']
 })
-export class WeatherOtherCityComponent implements OnInit {
+export class WeatherOtherCityComponent implements OnInit, OnDestroy  {
   private citiesList: City[] = [
     {
       id: 1508291,
@@ -84,21 +84,26 @@ export class WeatherOtherCityComponent implements OnInit {
     }
   ]
   forecastForCities: {name: string, temp: number}[]
+  subscription: any
+
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.apiService.getWeatherOnIDs(this.citiesList).subscribe(date => {
+    this.subscription = this.apiService.getWeatherOnIDs(this.citiesList).subscribe(date => {
+      // create array for view with template and server response
       this.forecastForCities = this.citiesList.map((city, idx) => {
         return {
           name: city.name,
           temp: date.list[idx].main.temp
         }
       })
-
-      console.log(date)
-
     })
-
+  }
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe()
+      this.subscription = null
+    }
   }
 }
 

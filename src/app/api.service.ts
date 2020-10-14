@@ -23,13 +23,13 @@ export class ApiService {
   }
 
   getWeatherOnIDs(cityies: Array<City>): any {
-    const listID = this.getAllCitiesID(cityies)
+    const listID = this._getAllCitiesID(cityies)
     return this.http.get(
       `${this.domain}group?id=${listID}&units=metric&appid=664b42c61061b7969ee4d087b09d9b54`
     )
   }
 
-  getAllCitiesID(cityies: Array<City>): string {
+  private _getAllCitiesID(cityies: Array<City>): string {
     return cityies.map(city => city.id).join(',')
   }
 }

@@ -1,31 +1,63 @@
 .weather-other-city {
+  width: 400px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  width: 450px;
+
   &__title {
     font-size: 26px;
     font-weight: 700;
     margin: 0 0 35px 0;
   }
+
   &__list {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
-    height: 180px;
+    height: 150px;
   }
+
   &__city {
     position: relative;
     display: flex;
     flex: 1 0 20px;
-    margin-bottom: 20px;
-    
+    margin-bottom: 15px;
   }
+
   &__name {
     color: #1864E6;
   }
+
   &__temp {
     position: absolute;
     right: 30px;
+  }
+}
+
+@media (max-width: 970px) {
+  .weather-other-city {
+    width: 300px;
+
+    &__temp {
+      position: absolute;
+      right: 10px;
+    }
+  }
+}
+
+@media (max-width: 765px) {
+  .weather-other-city {
+    width: 300px;
+  }
+}
+
+@media (max-width: 505px) {
+  .weather-other-city {
+    width: 250px;
+
+    &__list {
+      font-size: 12px;
+    }
   }
 }

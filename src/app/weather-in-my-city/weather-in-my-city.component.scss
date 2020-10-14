@@ -1,46 +1,94 @@
 .city-card {
   display: flex;
+  width: 400px;
   flex-direction: column;
-  width: 450px;
+  padding: 10px;
+
   &__title {
     font-size: 26px;
     font-weight: 700;
     margin: 0 0 35px 0;
   }
+
   &__descr {
     font-size: 18px;
     margin-bottom: 30px;
   }
+
   &__img {
     margin-right: 34px;
-
   }
+
   &__current-temp {
     display: flex;
     flex-direction: column;
   }
+
   &__temperatur-area {
     display: flex;
     font-size: 54px;
   }
+
   &__info {
     display: flex;
     flex-direction: column;
     margin-left: 75px;
   }
+
   &__icon {
     display: flex;
     font-size: 14px;
   }
+
   &__icon::before {
     content: url('../../assets/img/ico/wind.svg');
     display: block;
     width: 21px;
     height: 21px;
     margin-right: 10px;
-    
+
   }
+
   &__about {
     display: flex;
+  }
+}
+
+@media (max-width: 970px) {
+  .city-card {
+    width: 300px;
+
+    &__info {
+      margin-left: 35px;
+    }
+  }
+}
+
+@media (max-width: 505px) {
+  .city-card {
+    width: 250px;
+
+    &__descr {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    &__img {
+      margin-right: 20px;
+      width: 70px;
+    }
+
+    &__temperatur-area {
+      display: flex;
+      font-size: 34px;
+    }
+
+    &__info {
+      margin-left: 15px;
+    }
+
+    &__icon {
+      font-size: 10px;
+    }
   }
 }

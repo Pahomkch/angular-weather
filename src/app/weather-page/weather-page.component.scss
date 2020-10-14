@@ -1,34 +1,19 @@
 .weather-page {
-  display: flex;
-
-  &__news-content {
-    justify-content: start;
-  }
-
   &__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
     padding: 50px 100px 30px 65px;
   }
 
   &__cities {
     display: flex;
-    justify-content: space-around;
-  }
-
-  &__weather {
-    display: flex;
-    flex-flow: column wrap;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 }
 
-@media (max-width: 960px) {
-  // .container {
-  // }
-}
-
-@media (max-width: 600px) {
-  // .container {
-  // }
+@media (max-width: 1265px) {
+  .weather-page {
+    &__cities {
+      justify-content: center;
+    }
+  }
 }

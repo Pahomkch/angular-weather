@@ -1,20 +1,19 @@
+.main-content {
+  display: flex;
 
-.container {
-    // margin: 0 auto;
-    .main-content {
-        display: flex;
-        &__news-content {
-            justify-content: start;
-        }
-    }
+  &__news-content {
+    flex: 0 0 300px;
+  }
+
+  &__router {
+    flex: 1 0;
+  }
 }
 
-@media (max-width: 960px) {
-    // .container {
-    // }
+@media (max-width: 805px) {
+  .main-content {
+    &__news-content {
+      display: none;
+    }
   }
-  
-  @media (max-width: 600px) {
-    // .container {
-    // }
-  }
+}

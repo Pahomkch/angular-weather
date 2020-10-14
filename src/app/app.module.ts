@@ -1,3 +1,4 @@
+import { WeatherPageComponent } from './weather-page/weather-page.component'
 import { BrowserModule } from '@angular/platform-browser'
 import { LOCALE_ID, NgModule } from '@angular/core'
 import { registerLocaleData } from '@angular/common'
@@ -12,14 +13,21 @@ import { MainDailyNewsComponent } from './main-daily-news/main-daily-news.compon
 import { SidebarNewsComponent } from './sidebar-news/sidebar-news.component'
 import { ApiService } from './api.service'
 import { MyDatePipe } from './shared/my-date.pipe'
+import { Routes, RouterModule } from '@angular/router'
+
+const routes: Routes = [
+  {path: '', component: WeatherPageComponent },
+]
 
 registerLocaleData(localeRu, 'ru')
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     WeatherInMyCityComponent,
     WeatherOtherCityComponent,
+    WeatherPageComponent,
     WeatherTimelineComponent,
     MainDailyNewsComponent,
     SidebarNewsComponent,
@@ -27,7 +35,8 @@ registerLocaleData(localeRu, 'ru')
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     ApiService,

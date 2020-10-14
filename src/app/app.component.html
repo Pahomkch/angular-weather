@@ -4,18 +4,6 @@
     <div class="main-content__news-content">
       <app-sidebar-news></app-sidebar-news>
     </div>
-    <div class="main-content__container">
-      <div class="main-content__cities">
-        <app-weather-in-my-city></app-weather-in-my-city>
-        <app-weather-other-city></app-weather-other-city>
-      </div>
-      <div class="main-content__weather">
-        <app-weather-timeline></app-weather-timeline>
-      </div>
-      <div class="main-content__main-news">
-        <app-main-daily-news></app-main-daily-news>
-      </div>
-    </div>
-
+    <router-outlet></router-outlet>
   </main>
 </div>

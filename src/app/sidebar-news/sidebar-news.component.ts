@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 
 @Component({
   selector: 'app-sidebar-news',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar-news.component.scss']
 })
 export class SidebarNewsComponent implements OnInit {
-  NEWS = '../../assets/img/newsfeed.jpg'
+
   constructor() { }
 
   ngOnInit(): void {

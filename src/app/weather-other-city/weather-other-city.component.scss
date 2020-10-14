@@ -2,16 +2,24 @@
   display: flex;
   flex-direction: column;
   width: 450px;
+  &__title {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 35px 0;
+  }
   &__list {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 230px;
+    justify-content: space-around;
+    height: 180px;
   }
   &__city {
-    display: flex;
     position: relative;
-    height: 55px;
+    display: flex;
+    flex: 1 0 20px;
+    margin-bottom: 20px;
+    
   }
   &__name {
     color: #1864E6;

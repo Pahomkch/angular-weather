@@ -5,7 +5,7 @@
       <p class="city-card__descr">{{weather | titlecase}}</p>
       <div class="city-card__temperatur-area">
           <img [src]="CLOUD" alt="cloud" class="city-card__img">
-          <span class="city-card__temp">{{temperatura}}°</span>
+          <span class="city-card__temp">{{temperatura | number:'1.0-0'}}°</span>
       </div>  
     </div>
     <div class="city-card__info">

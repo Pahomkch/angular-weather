@@ -1,5 +1,5 @@
 import { ApiService } from './../api.service'
-import { Component, Input, OnDestroy, OnInit } from '@angular/core'
+import { Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core'
 import { City } from '../shared/models/City.model'
 
 
@@ -8,10 +8,10 @@ import { City } from '../shared/models/City.model'
   templateUrl: './weather-in-my-city.component.html',
   styleUrls: ['./weather-in-my-city.component.scss']
 })
-export class WeatherInMyCityComponent implements OnInit, OnDestroy {
+export class WeatherInMyCityComponent implements OnInit, OnDestroy, OnChanges {
   CLOUD = '../../assets/img/cloudy.jpg'
 
-  @Input() currentCity: City    // YekaterinburgID = 1486209
+  @Input() currentCity: City
   cityName: string
   weather: string
   temperatura: number
@@ -23,21 +23,31 @@ export class WeatherInMyCityComponent implements OnInit, OnDestroy {
 
   constructor(private apiService: ApiService) { }
 
-  ngOnInit(): void {
+  getWeatherInCity(): any {
     this.subscription = this.apiService.getWeatherOnCityID(this.currentCity.id).subscribe(data => {
       this.weather = data.weather[0].description
-      this.cityName = data.name
+      this.cityName = this.currentCity.name
       this.temperatura = data.main.temp
       this.humidity = data.main.humidity
       this.wind = data.wind.speed
       this.pressure = data.main.pressure
     })
   }
+  onChangeCardWithTemperatura(): any {
+    console.log('hello')
+  }
+  ngOnInit(): void {
+    this.getWeatherInCity()
+  }
+
+  ngOnChanges(): void {
+    this.getWeatherInCity()
+  }
+
   ngOnDestroy(): void {
     if (this.subscription) {
       this.subscription.unsubscribe()
       this.subscription = null
     }
   }
-
 }

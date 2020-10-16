@@ -1,8 +1,8 @@
 <div class="weather-other-city">
   <h2 class="weather-other-city__title">Другие города</h2>
   <div class="weather-other-city__list">
-    <div *ngFor="let city of forecastForCities" class="weather-other-city__city">
-      <span class="weather-other-city__name">{{city.name}}</span>
+    <div *ngFor="let city of forecastForCities; let i = index" class="weather-other-city__city">
+      <span (click)="pickToNewCity(i)" class="weather-other-city__name">{{city.name}}</span>
       <span class="weather-other-city__temp">{{city.temp | number:'1.0-0' }}°</span>
     </div>
   </div>

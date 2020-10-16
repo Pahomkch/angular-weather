@@ -97,7 +97,9 @@ export class WeatherPageComponent implements OnInit, OnDestroy {
     }
   ]
   currentCity: City = this.citiesList[this.currentCityIndex]
-  date: string
+
+  infoForViewMyCity: any
+  // date: string
 
   constructor(private apiService: ApiService) { }
 
@@ -114,8 +116,9 @@ export class WeatherPageComponent implements OnInit, OnDestroy {
   }
 
   onChangeCardWithTemperatura(data: any): any {
-    // here logick with change card
-    console.log(data)
+    // here logick with change card in timeline-component
+    // console.log(data)
+    this.infoForViewMyCity = data
   }
   ngOnDestroy(): void {
     if (this.subscription) {

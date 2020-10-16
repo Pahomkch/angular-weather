@@ -1,6 +1,6 @@
 <div class="weather-page__container">
   <div class="weather-page__cities"  >
-    <app-weather-in-my-city  [currentCity]="currentCity" ></app-weather-in-my-city>
+    <app-weather-in-my-city  [currentCity]="currentCity" [infoForViewMyCity]="infoForViewMyCity" ></app-weather-in-my-city>
     <app-weather-other-city (cityPicked)="onChangeCurrentCity($event)" [citiesList]="citiesList"></app-weather-other-city>
   </div>
   <div class="weather-page__weather">

@@ -12,6 +12,7 @@ export class WeatherInMyCityComponent implements OnInit, OnDestroy, OnChanges {
   CLOUD = '../../assets/img/cloudy.jpg'
 
   @Input() currentCity: City
+  @Input() infoForViewMyCity: any
   cityName: string
   weather: string
   temperatura: number
@@ -19,6 +20,7 @@ export class WeatherInMyCityComponent implements OnInit, OnDestroy, OnChanges {
   wind: number
   pressure: number
   subscription: any
+
 
 
   constructor(private apiService: ApiService) { }
@@ -38,8 +40,22 @@ export class WeatherInMyCityComponent implements OnInit, OnDestroy, OnChanges {
     this.getWeatherInCity()
   }
 
-  ngOnChanges(): void {
-    this.getWeatherInCity()
+  ngOnChanges(changes: any): void {
+    // logic get data about weather from card if click to timeline. 
+    // And get from server if city is change
+    if (changes.currentCity) {
+      this.getWeatherInCity()
+    } else {
+      console.log(changes)
+      const data = this.infoForViewMyCity.date
+      this.weather = data.weather[0].description
+      this.cityName = this.currentCity.name
+      this.temperatura = data.temp.day
+      this.humidity = data.humidity
+      this.wind = data.wind_speed
+      this.pressure = data.pressure
+      
+    }
   }
 
   ngOnDestroy(): void {

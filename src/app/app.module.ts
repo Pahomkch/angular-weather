@@ -14,6 +14,7 @@ import { SidebarNewsComponent } from './sidebar-news/sidebar-news.component'
 import { ApiService } from './api.service'
 import { MyDatePipe } from './shared/my-date.pipe'
 import { Routes, RouterModule } from '@angular/router'
+import { FormsModule } from '@angular/forms'
 
 const routes: Routes = [
   {path: '', component: WeatherPageComponent },
@@ -36,6 +37,7 @@ registerLocaleData(localeRu, 'ru')
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [

@@ -24,15 +24,20 @@
   }
 
   &__value {
-      display: flex;
+    display: flex;
     font-size: 38px;
     margin-top: 20px;
     justify-content: center;
   }
+  
 
   &:hover {
     transform: translateY(-10px);
     transition: all 0.2s;
     cursor: pointer;
   }
+}
+
+.active {
+  border-top: 4px solid blue;
 }

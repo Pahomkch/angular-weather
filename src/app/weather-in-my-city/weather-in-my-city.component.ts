@@ -1,5 +1,5 @@
 import { ApiService } from './../api.service'
-import { Component, OnDestroy, OnInit } from '@angular/core'
+import { Component, Input, OnDestroy, OnInit } from '@angular/core'
 
 
 @Component({
@@ -15,12 +15,13 @@ export class WeatherInMyCityComponent implements OnInit, OnDestroy  {
   wind: number
   pressure: number
   subscription: any
+  @Input() IDcurrentCity: number    // YekaterinburgID = 1486209
 
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.subscription = this.apiService.getWeather().subscribe(data => {
+    this.subscription = this.apiService.getWeatherOnCityID(this.IDcurrentCity).subscribe(data => {
       this.weather = data.weather[0].description
       this.temperatura = data.main.temp
       this.humidity = data.main.humidity

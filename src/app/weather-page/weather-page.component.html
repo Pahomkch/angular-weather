@@ -1,10 +1,10 @@
 <div class="weather-page__container">
   <div class="weather-page__cities">
-    <app-weather-in-my-city></app-weather-in-my-city>
-    <app-weather-other-city></app-weather-other-city>
+    <app-weather-in-my-city [IDcurrentCity]="cityID"></app-weather-in-my-city>
+    <app-weather-other-city [citiesList]="citiesList"></app-weather-other-city>
   </div>
   <div class="weather-page__weather">
-    <app-weather-timeline></app-weather-timeline>
+    <app-weather-timeline ></app-weather-timeline>
   </div>
   <div class="weather-page__main-news">
     <app-main-daily-news></app-main-daily-news>

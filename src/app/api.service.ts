@@ -10,9 +10,9 @@ export class ApiService {
   domain = 'https://api.openweathermap.org/data/2.5/'
   constructor(private http: HttpClient) { }
 
-  getWeather(): any {
+  getWeatherOnCityID(id: number): any {
     return this.http.get(
-      this.domain + 'weather?lat=56.8360&lon=60.6120&units=metric&appid=664b42c61061b7969ee4d087b09d9b54&lang=ru'
+      `${this.domain}weather?id=${id}&units=metric&appid=664b42c61061b7969ee4d087b09d9b54&lang=ru`
     )
   }
 

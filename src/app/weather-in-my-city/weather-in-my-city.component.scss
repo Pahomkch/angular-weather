@@ -32,6 +32,7 @@
   &__info {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     margin-left: 75px;
   }
 
@@ -40,13 +41,34 @@
     font-size: 14px;
   }
 
-  &__icon::before {
+  &__wind::before {
     content: url('../../assets/img/ico/wind.svg');
+    ;
     display: block;
+    background-size: contain;
     width: 21px;
     height: 21px;
     margin-right: 10px;
+  }
 
+  &__pressure::before {
+    display: block;
+    content: '';
+    background-image: url('../../assets/img/ico/pressure.ico');
+    background-size: contain;
+    width: 21px;
+    height: 21px;
+    margin-right: 10px;
+  }
+
+  &__humidity::before {
+    display: block;
+    content: '';
+    background-image: url('../../assets/img/ico/humidity.png');
+    background-size:  100% 100%  ;
+    width: 21px;
+    height: 21px;
+    margin-right: 10px;
   }
 
   &__about {

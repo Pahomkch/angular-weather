@@ -4,7 +4,7 @@
     <app-weather-other-city [citiesList]="citiesList"></app-weather-other-city>
   </div>
   <div class="weather-page__weather">
-    <app-weather-timeline ></app-weather-timeline>
+    <app-weather-timeline [temperaturas]="temperaturaOnWeek" [activForecastDay]="activeWeatherCard" ></app-weather-timeline>
   </div>
   <div class="weather-page__main-news">
     <app-main-daily-news></app-main-daily-news>

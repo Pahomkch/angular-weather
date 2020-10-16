@@ -1,7 +1,7 @@
 <div class="daily-temperature__container">
-  <div *ngFor="let day of temperaturas; let i = index" (click)="onChangeActivaCard(i)" class="daily-temperature" [ngClass]="{active : i === activForecastDay}"  >
+  <div *ngFor="let day of temperaturas; let i = index" (click)="onChangeActivCard(i)" class="daily-temperature" [ngClass]="{active : i === activForecastDay}"  >
     <div class="daily-temperature__title"   >{{day.dt | daydata}}</div>
-    <div class="daily-temperature__date">{{ getDate(day.dt) | date: 'd MMMM'}}</div>
+    <div class="daily-temperature__date">{{getDate(day.dt) | date: 'd MMMM'}}</div>
     <div class="daily-temperature__value">{{day.temp.day | number:'1.0-0'}}°</div>
   </div>
 </div>

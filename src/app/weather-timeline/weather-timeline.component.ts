@@ -7,34 +7,21 @@ import { Forecast } from '../shared/models/forecast.model'
   templateUrl: './weather-timeline.component.html',
   styleUrls: ['./weather-timeline.component.scss']
 })
-export class WeatherTimelineComponent implements OnInit, OnDestroy {
+export class WeatherTimelineComponent implements OnInit {
   @Input() city: string
   @Input() date: number
+  @Input() temperaturas: Forecast[]
+  @Input() activForecastDay
 
-  forecast: any
-  temperaturas: Forecast[]
-  subscription: any
-  activForecastDay = 0
-  constructor(private apiService: ApiService) { }
+  constructor() { }
 
-  onChangeActivaCard(index: number): any {
+  onChangeActivCard(index: number): any {
     this.activForecastDay = index
   }
 
   ngOnInit(): void {
-    this.subscription = this.apiService.getWeatherForSomeDays().subscribe(data => {
-      console.log(data)
+  }
 
-      this.temperaturas = data.daily
-      this.forecast = data
-    })
-  }
-  ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe()
-      this.subscription = null
-    }
-  }
   getDate(utc: number): Date {
     const date = new Date(utc * 1000)
     return date

@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, Input, OnDestroy, OnInit } from '@angular/core'
+import { ApiService } from '../api.service'
 import { City } from '../shared/models/City.model'
 
 @Component({
@@ -6,8 +7,22 @@ import { City } from '../shared/models/City.model'
   templateUrl: './weather-page.component.html',
   styleUrls: ['./weather-page.component.scss']
 })
-export class WeatherPageComponent implements OnInit {
-  cityID = 1486209 // YekaterinburgID = 1486209
+export class WeatherPageComponent implements OnInit, OnDestroy {
+  cityID = 1486209
+  temperaturaOnWeek: any
+  subscription: any
+  forecastFromServr: any
+  // YekaterinburgID = 1486209
+//   {
+//     "id": 1486209,
+//     "name": "Yekaterinburg",
+//     "state": "",
+//     "country": "RU",
+//     "coord": {
+//         "lon": 60.612499,
+//         "lat": 56.857498
+//     }
+// },
   citiesList: City[] = [
     {
       id: 1508291,
@@ -83,10 +98,28 @@ export class WeatherPageComponent implements OnInit {
     }
   ]
   date: string
-  constructor() { }
+  activeWeatherCard = 0
+
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
+    this.subscription = this.apiService.getWeatherForSomeDays().subscribe(data => {
+      console.log(data)
+      this.temperaturaOnWeek = data.daily
+      this.forecastFromServr = data
+    })
   }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe()
+      this.subscription = null
+    }
+  }
+
+  onChangeActiveWeatherCard(cardNumber: number): void {
+    this.activeWeatherCard = cardNumber
+}
 
 
 }

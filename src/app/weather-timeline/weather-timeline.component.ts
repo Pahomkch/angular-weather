@@ -1,5 +1,5 @@
 import { ApiService } from './../api.service'
-import { Component, OnDestroy, OnInit, Input, Output, EventEmitter } from '@angular/core'
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
 import { Forecast } from '../shared/models/forecast.model'
 
 @Component({
@@ -7,6 +7,7 @@ import { Forecast } from '../shared/models/forecast.model'
   templateUrl: './weather-timeline.component.html',
   styleUrls: ['./weather-timeline.component.scss']
 })
+
 export class WeatherTimelineComponent implements OnInit {
   @Input() city: string
   @Input() date: number
@@ -18,13 +19,13 @@ export class WeatherTimelineComponent implements OnInit {
 
   pickDate(): void {
     this.cardPicked.emit({
-      humidity: this.temperaturas[this.activForecastDay].humidity,
-      pressure: this.temperaturas[this.activForecastDay].pressure,
-      temp: this.temperaturas[this.activForecastDay].temp
+      date: this.temperaturas[this.activForecastDay]
     })
   }
+
   onChangeActivCard(index: number): any {
     this.activForecastDay = index
+    this.pickDate()
   }
 
   ngOnInit(): void {

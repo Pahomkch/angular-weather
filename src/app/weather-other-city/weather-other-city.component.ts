@@ -46,7 +46,3 @@ export class WeatherOtherCityComponent implements OnInit, OnDestroy, OnChanges {
     }
   }
 }
-
-
-
-

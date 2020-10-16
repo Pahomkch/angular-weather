@@ -33,9 +33,7 @@ export class WeatherInMyCityComponent implements OnInit, OnDestroy, OnChanges {
       this.pressure = data.main.pressure
     })
   }
-  onChangeCardWithTemperatura(): any {
-    console.log('hello')
-  }
+
   ngOnInit(): void {
     this.getWeatherInCity()
   }

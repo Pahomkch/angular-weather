@@ -13,7 +13,6 @@ export class WeatherPageComponent implements OnInit, OnDestroy {
   temperaturaOnWeek: any
   subscription: any
   forecastFromServr: any
-
   citiesList: City[] = [
     {
       id: 1486209,
@@ -114,6 +113,10 @@ export class WeatherPageComponent implements OnInit, OnDestroy {
     this._getTemperaturaOnWeek(this.currentCity.coord.lat, this.currentCity.coord.lon)
   }
 
+  onChangeCardWithTemperatura(data: any): any {
+    // here logick with change card
+    console.log(data)
+  }
   ngOnDestroy(): void {
     if (this.subscription) {
       this.subscription.unsubscribe()

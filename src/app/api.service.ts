@@ -7,7 +7,7 @@ import { City } from './shared/models/City.model'
   providedIn: 'root'
 })
 export class ApiService {
-  domain = 'https://api.openweathermap.org/data/2.5/'
+  domain = `https://api.openweathermap.org/data/2.5/`
   constructor(private http: HttpClient) { }
 
   getWeatherOnCityID(id: number): any {
@@ -16,9 +16,10 @@ export class ApiService {
     )
   }
 
-  getWeatherForSomeDays(): any {
+  getWeatherForSomeDays(lat: number, lon: number): any {
     return this.http.get(
-      this.domain + 'onecall?lat=56.8360&lon=60.6120&units=metric&appid=664b42c61061b7969ee4d087b09d9b54&lang=ru'
+      `${this.domain}onecall?lat=${lat}&lon=${lon}&units=metric&appid=664b42c61061b7969ee4d087b09d9b54&lang=ru`
+      // 56.8360   60.6120
     )
   }
 
